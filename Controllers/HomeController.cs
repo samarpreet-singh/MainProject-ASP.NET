@@ -23,6 +23,12 @@ public class HomeController : Controller
         return View();
     }
 
+    // Adding a new controller action called "Brief"
+    public IActionResult Brief()
+    {
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

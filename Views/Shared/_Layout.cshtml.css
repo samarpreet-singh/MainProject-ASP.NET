@@ -7,6 +7,11 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+a.navbar-brand > img{
+  width: 175px;
+  height: auto;
+}
+
 a {
   color: #0077cc;
 }
@@ -40,7 +45,7 @@ button.accept-policy {
 }
 
 .footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   white-space: nowrap;

@@ -8,6 +8,25 @@ html {
   }
 }
 
+body {
+  font-family: 'Trocchi', sans-serif;
+  font-size: 17.5px;
+}
+
+h1{
+  font-family: 'Brush Script MT', sans-serif;
+  font-size: 50px;
+}
+
+h2, h3{
+  font-family: 'Sofia';
+  font-size: 35px;
+}
+
+h3{
+  font-size: 25px;
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
