@@ -1,9 +1,16 @@
+/*
+Student Name: Samarpreet Singh
+Student Number: 200510621
+Program: CMPG 2 Year Diploma
+Section and CRN: Wednesday 7PM, 11437
+Assignment 1
+*/
+
 /* Reset some default styles */
 body, h1, h2, h3, p, ul, li, table, th, td {
     margin: 0;
     padding: 0;
   }
-
 
   /* Style for the heading 'My Project Brief' */
   .project-brief-heading{
@@ -22,6 +29,7 @@ body, h1, h2, h3, p, ul, li, table, th, td {
     color: #8503f9;
   }
 
+  /* styling the tables */
   .table.table-striped.table-bordered > thead > tr > th{
     width: 33.33%;
   }

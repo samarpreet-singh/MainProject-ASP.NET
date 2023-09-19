@@ -1,4 +1,11 @@
-﻿using System.Diagnostics;
+﻿/*
+Student Name: Samarpreet Singh
+Student Number: 200510621
+Program: CMPG 2 Year Diploma
+Section and CRN: Wednesday 7PM, 11437
+Assignment 1
+*/
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MainProject.Models;
 
