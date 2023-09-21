@@ -3,7 +3,7 @@ Student Name: Samarpreet Singh
 Student Number: 200510621
 Program: CMPG 2 Year Diploma
 Section and CRN: Wednesday 7PM, 11437
-Assignment 1
+Assignment 1 - BONUS is the privacy page (privacy.cshtml)
 */
 
 html {
@@ -46,4 +46,174 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+/* BRIEF PAGE STYLING BEGINS */
+
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li, table, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for the heading 'My Project Brief' */
+.project-brief-heading{
+  text-align: center;
+  padding: 20px 0;
+  color: #ea3b9d;
+}
+
+/* Style for sections */
+.company-info{
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #8503f9;
+}
+
+/* styling the tables */
+.table.table-striped.table-bordered > thead > tr > th{
+  width: 33.33%;
+}
+
+.table.table-striped.table-bordered > tbody > tr{
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Style for 'Company Info' section */
+.company-info {
+  background-color: #b1b6dc;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+/* Style for 'Proposal' section */
+.proposal {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #ccd7c8;
+}
+
+.proposal h2 {
+  color: #8503f9;;
+}
+
+.proposal h3 {
+  margin-top: 15px;
+  color: #FF5733;
+}
+
+.proposal p {
+  margin-bottom: 15px;
+}
+
+.proposal ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.proposal li {
+  margin-bottom: 5px;
+}
+
+/* BRIEF PAGE STYLING ENDS */
+
+/* INDEX PAGE STYLING BEGINS */
+.home-page-heading {
+  color: #FDB827;
+}
+
+.home-page-intro-description p {
+  color: #d0fff7;
+  padding-top: 11%;
+  text-decoration: underline;
+}
+
+.text-center > .row:first-child > img{
+  width: 15%;
+  height: auto;
+  
+}
+
+.home-page-intro-description img {
+  width: 11%;
+  height: auto;
+  margin-left: 89%;
+}
+  
+.home-page-intro{
+  height: auto;
+  width: 100%;
+  background-image: url('../images/home-page-intro.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.text-center{
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4); /* darkening the background with the div so text and logos are more visible */
+}
+
+/*INDEX PAGE STYLING ENDS */
+
+/*PRIVACY PAGE STYLING BEGINS */
+.privacy-page-heading{
+  text-align: center;
+  padding: 20px 0;
+  color: #c965ff;
+}
+
+.privacy-policy-section{
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #ffe9dc;
+}
+
+.privacy-policy-section h2 {
+  color: #8503f9;;
+}
+
+.privacy-policy-section h3 {
+  margin-top: 15px;
+  color: #FF5733;
+}
+
+.privacy-policy-section p {
+  margin-bottom: 15px;
+}
+
+.privacy-policy-section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.privacy-policy-section li {
+  margin-bottom: 5px;
 }
