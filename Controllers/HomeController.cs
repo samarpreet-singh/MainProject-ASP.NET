@@ -33,7 +33,12 @@ public class HomeController : Controller
     // Adding a new controller action called "Brief"
     public IActionResult Brief()
     {
-        return View();
+        List<Dictionary<string, object>> companyInfoData = new()
+            {
+                new() { { "Company Name", "Crafty Creations"}, { "Company Description", "Crafty Creations is an online marketplace dedicated to promoting and selling handmade crafts from artisans around the world. It provides a much-needed platform for artisans to showcase and sell their unique creations, from cosplay outfits and fictional character figures to home decor. All crafts/items will be certified to make sure they are of the highest quality!" }, { "Group Members and Roles", "Samarpreet Singh, Full-Stack Developer" } },
+            };
+
+        return View(companyInfoData);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
