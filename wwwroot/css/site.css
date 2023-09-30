@@ -3,7 +3,6 @@ Student Name: Samarpreet Singh
 Student Number: 200510621
 Program: CMPG 2 Year Diploma
 Section and CRN: Wednesday 7PM, 11437
-Assignment 1 - BONUS is the privacy page (privacy.cshtml)
 */
 
 html {
@@ -19,6 +18,7 @@ html {
 body {
   font-family: 'Trocchi', sans-serif;
   font-size: 17.5px;
+  min-height: 100vh;
 }
 
 h1{
@@ -39,41 +39,30 @@ h3{
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.container{
+  min-height: 100vh;
 }
 
-body {
-  margin-bottom: 60px;
-}
-
-/* BRIEF PAGE STYLING BEGINS */
-
-/* Reset some default styles */
 body, h1, h2, h3, p, ul, li, table, th, td {
   margin: 0;
   padding: 0;
 }
 
-/* Style for the heading 'My Project Brief' */
 .project-brief-heading{
   text-align: center;
   padding: 20px 0;
   color: #ea3b9d;
 }
 
-/* Style for sections */
 .company-info{
   margin: 20px 0;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
   text-align: center;
   color: #8503f9;
 }
 
-/* styling the tables */
 .table.table-striped.table-bordered > thead > tr > th{
   width: 33.33%;
 }
@@ -83,7 +72,6 @@ body, h1, h2, h3, p, ul, li, table, th, td {
   vertical-align: middle;
 }
 
-/* Style for 'Company Info' section */
 .company-info {
   background-color: #b1b6dc;
 }
@@ -104,12 +92,11 @@ body, h1, h2, h3, p, ul, li, table, th, td {
   background-color: #f2f2f2;
 }
 
-/* Style for 'Proposal' section */
 .proposal {
   margin: 20px 0;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
   text-align: center;
   background-color: #ccd7c8;
 }
@@ -137,9 +124,6 @@ body, h1, h2, h3, p, ul, li, table, th, td {
   margin-bottom: 5px;
 }
 
-/* BRIEF PAGE STYLING ENDS */
-
-/* INDEX PAGE STYLING BEGINS */
 .home-page-heading {
   color: #FDB827;
 }
@@ -174,12 +158,9 @@ body, h1, h2, h3, p, ul, li, table, th, td {
   width: 100%;
   height: 100%;
   padding: 15px;
-  background-color: rgba(0, 0, 0, 0.4); /* darkening the background with the div so text and logos are more visible */
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-/*INDEX PAGE STYLING ENDS */
-
-/*PRIVACY PAGE STYLING BEGINS */
 .privacy-page-heading{
   text-align: center;
   padding: 20px 0;
@@ -190,7 +171,7 @@ body, h1, h2, h3, p, ul, li, table, th, td {
   margin: 20px 0;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
   text-align: center;
   background-color: #ffe9dc;
 }
@@ -216,4 +197,275 @@ body, h1, h2, h3, p, ul, li, table, th, td {
 
 .privacy-policy-section li {
   margin-bottom: 5px;
+}
+
+.categories-heading {
+  text-align: center;
+  padding: 20px 0;
+  color: #ea3b9d;
+  font-weight: bold;
+  border-bottom: 2px solid #ea3b9d;
+  position: relative;
+}
+
+.categories-heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50px;
+  height: 5px;
+  background-color: #ea3b9d;
+  transform: translateX(-50%);
+}
+
+.categories-heading:hover {
+  color: #dd6cff;
+  transition: color 0.3s ease-in-out;
+}
+
+.link-para-container{
+  text-align: center;
+  padding: 15px 15px;
+}
+
+.link-style-1 {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FF5733;
+  background-color: #b8f2c3;
+  border: 1px solid #29b94d; 
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.link-style-1:hover {
+  background-color: #ff96ef;
+  border-color: #ffcaf2; 
+  border: 1px solid #29b94d; 
+  color: #6652d8; 
+}
+
+#categories-table {
+  width: 100%; 
+  border-collapse: collapse;
+}
+
+#categories-table th, #categories-table td {
+  padding: 10px; 
+  border: 2px solid #c490ff; 
+  text-align: center; 
+}
+
+#categories-table th {
+  background-color: #a3cbff;
+}
+
+#categories-table tr:nth-child(even) {
+  background-color: #fcc5c5; 
+}
+
+#categories-table tr:nth-child(odd) {
+  background-color: #d2fff7; 
+}
+
+.action-button-edit, .action-button-details, .action-button-delete, .action-button-create, .action-button-save {
+  padding: 8px 16px;
+  font-size: 14px; 
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 1px;
+  cursor: pointer;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.action-button-edit {
+  color: #3498db;
+  background-color: #b8f2c3;
+}
+
+.action-button-details {
+  color: #27ae60;
+  background-color: #c2cbff;
+}
+
+.action-button-delete {
+  color: #e74c3c;
+  background-color: #ffd1e7;
+}
+
+.action-button-create{
+  color: #faa499;
+  background-color: #e2d7f8;
+}
+
+.action-button-save{
+  color: #258cfb;
+  background-color: rgb(149, 255, 228);
+}
+
+.action-button-edit:hover, .action-button-details:hover, .action-button-delete:hover, .action-button-create:hover, .action-button-save:hover {
+  background-color: #f9f9f9;
+}
+
+#create-categories-container{
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
+  text-align: center;
+  background-color: #b7d9ff;
+}
+
+.categories-subheading {
+  font-weight: bold;
+  color: #be9bff;
+  margin: 15px;
+  text-align: center;
+}
+
+#create-categories-container {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.custom-centered{
+  width: 100%; 
+}
+
+.description-box{
+  height: 100px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 50%;
+  margin-left: 25%;
+  padding: 10px;
+  border: 2px solid #eda7ff;
+  border-radius: 5px;
+}
+
+#edit-categories-container{
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0.3, 0,3, 0,3, 0.3);
+  text-align: center;
+  background-color: #f0ffd5;
+}
+
+#details-categories-container{
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
+  background-color: #bd9aff;
+}
+
+.products-heading {
+  text-align: center;
+  padding: 20px 0;
+  color: #ff6f61;
+  font-weight: bold;
+  border-bottom: 2px solid #ff6f61;
+  position: relative;
+}
+
+.products-heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50px;
+  height: 5px;
+  background-color: #ff6f61;
+  transform: translateX(-50%);
+}
+
+.products-heading:hover {
+  color: #dd6cff;
+  transition: color 0.3s ease-in-out;
+}
+
+.link-style-2 {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #7033ff;
+  background-color: #b8f2d0;
+  border: 1px solid #ff57c7; 
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.link-style-2:hover {
+  background-color: #99ff96;
+  border-color: #ffcaf2; 
+  border: 1px solid #29b94d; 
+  color: #ff7843; 
+}
+
+#products-table {
+  width: 100%; 
+  border-collapse: collapse;
+}
+
+#products-table th, #products-table td {
+  padding: 10px; 
+  border: 2px solid #c490ff; 
+  text-align: center;
+}
+
+#products-table th {
+  background-color: #fcc19b;
+}
+
+#products-table tr:nth-child(even) {
+  background-color: #cefcc5; 
+}
+
+#products-table tr:nth-child(odd) {
+  background-color: #d2d3ff; 
+}
+
+.products-subheading {
+  font-weight: bold;
+  color: #84f700;
+  margin: 15px;
+  text-align: center;
+}
+
+#create-products-container{
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
+  text-align: center;
+  background-color: #e5fcb1;
+}
+
+#details-products-container{
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
+  background-color: #c7ffcb;
 }

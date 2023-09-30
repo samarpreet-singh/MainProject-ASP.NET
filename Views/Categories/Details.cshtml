@@ -1,30 +1,32 @@
 @model MainProject.Models.Category
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Category Details - Crafty Creations";
 }
 
-<h1>Details</h1>
+<div class="container">
+    <h1 class="categories-heading">Details for an Existing Category</h1>
 
-<div>
-    <h4>Category</h4>
+    <h2 class="categories-subheading">Category Details</h2>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    <dl class="row" id="details-categories-container">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    
+    <p class="link-para-container">
+        <a class="action-button-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+        <a class="link-style-1" asp-action="Index">Back to Categories List</a>
+    </p>
+
 </div>
