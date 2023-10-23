@@ -12,33 +12,8 @@
     <div class="row" id="create-products-container">
         <div class="col-md-4 custom-centered">
             <form asp-action="Edit">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="CategoryId" class="control-label"></label>
-                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
-                    <span asp-validation-for="CategoryId" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Description" class="control-label"></label>
-                    <input asp-for="Description" class="form-control description-box" />
-                    <span asp-validation-for="Description" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Image" class="control-label"></label>
-                    <input asp-for="Image" class="form-control" />
-                    <span asp-validation-for="Image" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MSRP" class="control-label"></label>
-                    <input asp-for="MSRP" class="form-control" />
-                    <span asp-validation-for="MSRP" class="text-danger"></span>
-                </div>
+                <partial name="~/Views/Shared/Products/_ProductsCreateEditPartial.cshtml" model="Model" />
                 <div class="form-group">
                     <input type="submit" value="Save Changes!" class="action-button-save"/>
                 </div>

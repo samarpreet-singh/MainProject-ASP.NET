@@ -12,20 +12,10 @@
     <div class="row" id="edit-categories-container">
         <div class="col-md-4 custom-centered">
             <form asp-action="Edit">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
+                <partial name="~/Views/Shared/Categories/_CategoriesCreateEditPartial.cshtml" model="Model" />
                 <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Description" class="control-label"></label>
-                    <input asp-for="Description" class="form-control description-box" />
-                    <span asp-validation-for="Description" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Save Changes!" class="action-button-save"/>
+                    <input type="submit" value="Save Changes!" class="action-button-save" />
                 </div>
             </form>
         </div>
