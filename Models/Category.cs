@@ -13,7 +13,10 @@ namespace MainProject.Models
         [StringLength(1000)]
         public string? Description { get; set; } = String.Empty;
 
+        [StringLength(250)]
+        public string? Image { get; set; } = String.Empty;
+
         // relationship with products and a place to store the reference to the product in the category instance.
-        public virtual ICollection<Product>? Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }

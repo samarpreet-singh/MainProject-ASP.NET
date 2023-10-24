@@ -35,6 +35,7 @@ namespace MainProject.Controllers
             }
 
             var category = await _context.Categories
+                .Include(category => category.Products) //This include is similar to a join statement in SQL that lets us get related products to a particular category and show them in a table
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (category == null)
             {
