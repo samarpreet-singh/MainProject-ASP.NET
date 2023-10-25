@@ -42,6 +42,14 @@
         </dd>
     </dl>
 
+    <form asp-controller="Carts" asp-action="AddToCart"> <!-- AddToCart action under cartscontroller -->
+        <!-- asp forms automatically post instead of get -->
+        <input type="hidden" name="productId" value="@Model.Id">
+        <input type="number" name="quantity" value="1" step="1" min="1" max="999999">
+        <!-- This is meant to be a quick add so the quantity is hardcoded -->
+        <input type="submit" value="Add to Cart" class="btn btn-success">
+    </form>
+
     <p class="link-para-container">
         <a class="action-button-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
         <a class="link-style-2" asp-action="Index">Back to Categories List</a>

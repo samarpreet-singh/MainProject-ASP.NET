@@ -3,6 +3,13 @@ using MainProject.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add sessions
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -13,6 +20,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySQL(connectionString));
 
 var app = builder.Build();
+
+// Enable Sessions on requests
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

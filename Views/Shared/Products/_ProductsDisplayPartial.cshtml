@@ -41,6 +41,14 @@
                     @Html.DisplayFor(modelItem => item.Category.Name)
                 </td>
                 <td>
+                    <form asp-controller="Carts" asp-action="AddToCart"> <!-- AddToCart action under cartscontroller -->
+                        <!-- asp forms automatically post instead of get -->
+                        <input type="hidden" name="productId" value="@item.Id">
+                        <input type="hidden" name="quantity" value="1">
+                        <!-- This is meant to be a quick add so the quantity is hardcoded -->
+                        <input type="submit" value="Quick Add to Cart" class="btn btn-success">
+                    </form>
+
                     <a class="action-button-edit" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                     <a class="action-button-details" asp-action="Details" asp-route-id="@item.Id">Details</a>
                     <a class="action-button-delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
