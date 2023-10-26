@@ -16,10 +16,10 @@
             <h2 class="product-detail-heading">@Model.Name</h2>
             <p class="product-detail-description">@Model.Description</p>
             <dl class="row" id="details-products-container">
-                <dt class="col-sm-4">Price:</dt>
-                <dd class="col-sm-8">$@Model.MSRP</dd>
-                <dt class="col-sm-4">Category:</dt>
-                <dd class="col-sm-8">@Model.Category.Name</dd>
+                <dt class="col-sm-4 price-label">Price:</dt>
+                <dd class="col-sm-8 price-label">$@Model.MSRP</dd>
+                <dt class="col-sm-4 category-label">Category:</dt>
+                <dd class="col-sm-8 category-label"><a class="link-style-1" asp-controller="Categories" asp-action="Details" asp-route-id="@Model.CategoryId">@Model.Category.Name</a></dd>
             </dl>
 
             <form asp-controller="Carts" asp-action="AddToCart">

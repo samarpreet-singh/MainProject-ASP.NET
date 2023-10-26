@@ -19,7 +19,7 @@
                         <img src="@cartItem.Product.Image" alt="@cartItem.Product.Name" />
                     </div>
                     <div class="product-details">
-                        <h2>@cartItem.Product.Name</h2>
+                        <h2><a class="link-style-2" asp-controller="Products" asp-action="Details" asp-route-id="@cartItem.Product.Id">@cartItem.Product.Name</a></h2>
                         <p>Size: @cartItem.Size</p>
                         <p>Quantity: @cartItem.Quantity</p>
                         <p>Price: $@cartItem.Product.MSRP</p>

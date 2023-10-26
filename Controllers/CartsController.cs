@@ -68,6 +68,7 @@ namespace MainProject.Controllers
             if (cartItem != null && cartItem.Product != null)
             {
                 cartItem.Quantity += quantity; // update by the passed in quantity.
+                cartItem.Size = size;
             }
             else
             {
