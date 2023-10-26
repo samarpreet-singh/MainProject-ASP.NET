@@ -7,6 +7,8 @@ namespace MainProject.Models
 
         public int Quantity { get; set; }
 
+        public ProductSize Size { get; set; }
+
         public Product Product { get; set; } = new Product();
     }
 }

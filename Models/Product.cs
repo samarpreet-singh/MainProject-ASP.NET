@@ -36,7 +36,7 @@ namespace MainProject.Models
         public decimal MSRP { get; set; } = 0.01M;
 
         [Required]
-        public ProductSize Size { get; set; } = ProductSize.S;
+        public ProductSize Size { get; set; } = ProductSize.XS;
 
         [ForeignKey("CategoryId")]
         public virtual Category? Category { get; set; } // creates the association to categories, allows a category to be stored in an instance of a product

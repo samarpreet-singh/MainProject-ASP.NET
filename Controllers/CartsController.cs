@@ -53,7 +53,7 @@ namespace MainProject.Controllers
         }
 
         [HttpPost] // tells the ACTION about what kind of http method is to be used to send, here it is through post
-        public async Task<IActionResult> AddToCart(int productId, int quantity)
+        public async Task<IActionResult> AddToCart(int productId, int quantity, ProductSize size)
         {
             var cart = GetCart(); // returns either existing or brand new cart
 
@@ -79,7 +79,7 @@ namespace MainProject.Controllers
                     return NotFound();
                 }
 
-                cartItem = new CartItem { ProductId = productId, Quantity = quantity, Product = product }; // we have to create a new cartItem object in this case and add the product manually to it because it could not be found above.
+                cartItem = new CartItem { ProductId = productId, Quantity = quantity, Size = size, Product = product }; // we have to create a new cartItem object in this case and add the product manually to it because it could not be found above.
 
                 cart.CartItems.Add(cartItem); // then we add that to the cart object we created.
             }

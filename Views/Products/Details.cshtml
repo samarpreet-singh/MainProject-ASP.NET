@@ -21,9 +21,11 @@
                 <dt class="col-sm-4">Category:</dt>
                 <dd class="col-sm-8">@Model.Category.Name</dd>
             </dl>
-            
+
             <form asp-controller="Carts" asp-action="AddToCart">
                 <input type="hidden" name="productId" value="@Model.Id">
+                <label asp-for="Size" class="control-label"></label>
+                <select asp-for="Size" class="form-control" asp-items="Html.GetEnumSelectList<ProductSize>()"></select>
                 <input class="quantity-selector" type="number" name="quantity" value="1" step="1" min="1" max="999999">
                 <input type="submit" value="Add to Cart" class="btn add-to-cart">
             </form>

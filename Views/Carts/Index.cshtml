@@ -1,43 +1,52 @@
 @model MainProject.Models.Cart
 
 @{
-    ViewData["Title"] = "View My Cart";
+    ViewData["Title"] = "My Cart";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-@if (Model.CartItems != null)
+
+@if (Model.CartItems != null && Model.CartItems.Any())
 {
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
+    <div class="container">
 
-        <tbody>
+        <div class="cart-items-container">
+            <h2>@ViewData["Title"]</h2>
             @foreach (var cartItem in Model.CartItems)
             {
-                <tr>
-                    <td>@cartItem.Product.Name</td>
-                    <td>@cartItem.Quantity</td>
-                    <td>@cartItem.Product.MSRP</td>
-                    <td>@((decimal)(cartItem.Quantity * cartItem.Product.MSRP))</td>
-                    <!-- casting to decimal since msrp is decimal -->
-                </tr>
+                <div class="cart-item">
+                    <div class="product-image">
+                        <img src="@cartItem.Product.Image" alt="@cartItem.Product.Name" />
+                    </div>
+                    <div class="product-details">
+                        <h2>@cartItem.Product.Name</h2>
+                        <p>Size: @cartItem.Size</p>
+                        <p>Quantity: @cartItem.Quantity</p>
+                        <p>Price: $@cartItem.Product.MSRP</p>
+                        <p>Subtotal: $@(cartItem.Quantity * cartItem.Product.MSRP)</p>
+                    </div>
+                </div>
             }
-        </tbody>
+            <p class="final-total">Final Total: $@(Model.CartItems.Sum(cartItem => cartItem.Quantity * cartItem.Product.MSRP))</p>
+        </div>
+        <p class="link-para-container">
+            <a class="link-style-2" asp-controller="Products" asp-action="Index">Show All Products</a>
+            <a class="link-style-2" asp-controller="Categories" asp-action="Index">Show All Categories</a>
+        </p>
+    </div>
+}
+else // ELSE BLOCK HERE!!!!
+{
+    <div class="container">
+        <div class="cart-items-container-empty">
+            <h2>@ViewData["Title"]</h2>
+            <br>
+            <p>Your cart is empty! Time to go shopping, use any of the options below!</p>
+        </div>
 
-        <tfoot>
-            <tr>
-                <th>Total</th>
-                <td colspan="3">
-                    @(Model.CartItems.Sum(cartItem => (decimal)(cartItem.Quantity * cartItem.Product.MSRP)))
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+        <p class="link-para-container">
+            <a class="link-style-2" asp-controller="Products" asp-action="Index">Show All Products</a>
+            <a class="link-style-2" asp-controller="Categories" asp-action="Index">Show All Categories</a>
+        </p>
+    </div>
 }

@@ -523,3 +523,132 @@ form {
   color: #f8d3af;
   background-color: #542c0f;
 }
+
+
+/*View my cart page */
+.cart-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
+  background-color: #b18bf8;
+}
+
+.cart-items-container > h2 {
+  margin-bottom: 20px;
+  color: #542c0f;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  width: max-content;
+  background-color: #f8d3af;
+  border: 2px solid #542c0f;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.cart-items-container-empty > h2 {
+  margin-bottom: 20px;
+  align-self: center;
+  color: #542c0f;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  width: max-content;
+  background-color: #f8d3af;
+  border: 2px solid #542c0f;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.cart-items-container-empty > p{
+  margin-bottom: 20px;
+  align-self: center;
+  color: #542c0f;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+  width: max-content;
+  background-color: #ffda62;
+  border: 2px solid #542c0f;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.cart-items-container-empty {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0.3, 0.3, 0.3, 0.3);
+  text-align: center;
+  background-color: #b18bf8;
+}
+
+.cart-item {
+  display: flex;
+  background-color: #f7b9b9;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+}
+
+.product-image {
+  flex: 1;
+  max-width: 150px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.product-details {
+  flex: 3;
+  padding: 10px;
+}
+
+.product-details h2 {
+  color: #854c9c;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.product-details p {
+  color: #333;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.final-total {
+  align-self: end;
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: #f8d3af;
+  border: 2px solid #542c0f;
+  width: max-content;
+  color: #542c0f;
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
