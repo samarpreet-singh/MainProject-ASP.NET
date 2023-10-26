@@ -1,34 +1,29 @@
 @model MainProject.Models.Category
 
 @{
-    ViewData["Title"] = "Category Details - Crafty Creations";
+    ViewData["Title"] = "Category Details";
 }
 
 <div class="container">
-    <h1 class="categories-heading">Details for an Existing Category</h1>
+    <h1 class="categories-heading">Category Details</h1>
 
-    <h2 class="categories-subheading">Category Details</h2>
-    <hr />
-    <dl class="row" id="details-categories-container">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-    </dl>
-    
-    <partial name="~/Views/Shared/Products/_ProductsDisplayPartial.cshtml" model="Model.Products"></partial> <!-- .Products field is the ICollection part from the category.cs model -->
+    <div class="categories-subheading">
+        <h2>@Html.DisplayFor(model => model.Name)</h2>
 
-    <p class="link-para-container">
+        <p>@Html.DisplayFor(model => model.Description)</p>
+
+    </div>
+
+    <div class="products-container">
+        <h2 class="categories-subheading">Products in This Category</h2>
+
+        <partial name="~/Views/Shared/Products/_ProductsDisplayPartial.cshtml" model="Model.Products"></partial>
+        <!-- .Products field is the ICollection part from the category.cs model -->
+
+    </div>
+
+    <div class="link-para-container">
         <a class="action-button-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
         <a class="link-style-1" asp-action="Index">Back to Categories List</a>
-    </p>
-
+    </div>
 </div>

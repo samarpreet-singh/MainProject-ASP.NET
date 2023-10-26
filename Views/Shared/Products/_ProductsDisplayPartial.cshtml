@@ -1,59 +1,23 @@
+
 @model IEnumerable<MainProject.Models.Product>
 
-<table class="table" id="products-table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MSRP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container">
+    <div class="card-container">
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Image)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MSRP)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.Name)
-                </td>
-                <td>
-                    <form asp-controller="Carts" asp-action="AddToCart"> <!-- AddToCart action under cartscontroller -->
-                        <!-- asp forms automatically post instead of get -->
-                        <input type="hidden" name="productId" value="@item.Id">
-                        <input type="hidden" name="quantity" value="1">
-                        <!-- This is meant to be a quick add so the quantity is hardcoded -->
-                        <input type="submit" value="Quick Add to Cart" class="btn btn-success">
-                    </form>
-
-                    <a class="action-button-edit" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="action-button-details" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    <a class="action-button-delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+            <div class="card">
+                <img src="@item.Image" alt="@item.Name" class="card-image">
+                <div class="card-content">
+                    <h2><a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">@item.Name</a></h2>
+                    <p>@item.Description</p>
+                    <p>$@item.MSRP</p>
+                    <div class="card-actions">
+                        <a class="action-button-edit" asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="action-button-details" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="action-button-delete" asp-asp-controller="Products" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+</div>
