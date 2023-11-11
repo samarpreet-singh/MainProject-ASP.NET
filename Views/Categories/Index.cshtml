@@ -8,7 +8,10 @@
     <h1 class="categories-heading">Categories</h1>
 
     <p class="link-para-container">
-        <a class="link-style-1" asp-action="Create">Create New Category</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="link-style-1" asp-action="Create">Create New Category</a>
+        }
     </p>
 
     <div class="card-container">
@@ -20,9 +23,12 @@
                     <h2><a asp-action="Details" asp-route-id="@item.Id">@item.Name</a></h2>
                     <p>@item.Description</p>
                     <div class="card-actions">
-                        <a class="action-button-edit" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a class="action-button-details" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                        <a class="action-button-delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="action-button-details" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a class="action-button-edit" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a class="action-button-delete" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        }
                     </div>
                 </div>
             </div>

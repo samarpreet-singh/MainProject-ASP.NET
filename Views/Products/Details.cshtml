@@ -19,7 +19,8 @@
                 <dt class="col-sm-4 price-label">Price:</dt>
                 <dd class="col-sm-8 price-label">$@Model.MSRP</dd>
                 <dt class="col-sm-4 category-label">Category:</dt>
-                <dd class="col-sm-8 category-label"><a class="link-style-1" asp-controller="Categories" asp-action="Details" asp-route-id="@Model.CategoryId">@Model.Category.Name</a></dd>
+                <dd class="col-sm-8 category-label"><a class="link-style-1" asp-controller="Categories"
+                        asp-action="Details" asp-route-id="@Model.CategoryId">@Model.Category.Name</a></dd>
             </dl>
 
             <form asp-controller="Carts" asp-action="AddToCart">
@@ -33,7 +34,10 @@
     </div>
 
     <p class="link-para-container">
-        <a class="action-button-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="action-button-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+        }
         <a class="link-style-2" asp-action="Index">Show All Products</a>
         <a class="link-style-2" asp-controller="Categories" asp-action="Index">Show All Categories</a>
     </p>

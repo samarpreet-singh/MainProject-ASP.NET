@@ -8,7 +8,10 @@
     <h1 class="products-heading">Products</h1>
 
     <p class="link-para-container">
-        <a class="link-style-2" asp-action="Create">Create New Product</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="link-style-2" asp-action="Create">Create New Product</a>
+        }
     </p>
     <partial name="~/Views/Shared/Products/_ProductsDisplayPartial.cshtml" model="Model"></partial>
 </div>

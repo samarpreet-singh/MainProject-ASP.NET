@@ -23,7 +23,10 @@
     </div>
 
     <div class="link-para-container">
-        <a class="action-button-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="action-button-edit" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+        }
         <a class="link-style-1" asp-action="Index">Back to Categories List</a>
     </div>
 </div>
