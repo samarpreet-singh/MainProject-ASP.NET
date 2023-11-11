@@ -27,6 +27,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>() // IdentityUser is a templat
 
 builder.Services.AddTransient<DbInitializer>();
 
+builder.Services.AddAuthentication().AddGoogle(options => {
+    options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+});
+
 var app = builder.Build();
 
 // Enable Sessions on requests
