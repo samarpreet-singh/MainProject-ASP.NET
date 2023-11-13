@@ -663,3 +663,185 @@ form {
   display: inline-block;
 }
 
+
+/* REGISTER PAGE STYLING BEGINS */
+
+.form-page{
+  height: auto;
+  width: 100%;
+  background-image: url('../images/register-page-background.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.black-overlay{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-section{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.register-form-heading{
+  margin-bottom: 20px;
+  align-self: center;
+  color: rgb(60, 255, 0);
+  text-shadow: 1px 1px 1px #ff0000; /* Gold shadow */
+  text-decoration: none;
+  font-size: 45px;
+  font-weight: bold;
+  text-transform: capitalize;
+  width: max-content;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.register-form-heading:hover {
+  color: #6cff85;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Registration Form Styles - Elven Elegance */
+#registerForm, #external-account, #loginForm {
+  color: #7ffd9f;
+  background: transparent;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 75%;
+  box-shadow: 0px 0px 5px 5px #8B4513; /* Brown shadow */
+  text-shadow: 2px 2px 4px #FFD700; /* Gold shadow */
+  transition: color 0.3s;
+}
+
+.form-floating {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.form-floating input{
+  font-size: 16px;
+  text-shadow: 1px 1px 2px #CD853F; /* Peru shadow */
+  background: transparent;
+  color: #b08ae2;
+  border: 1px solid #7ffd9f;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 40px;
+  transition: 0.3s;
+  margin-left: 300px;
+  width: 75%;
+}
+
+.form-floating span{
+  text-shadow: 2px 2px 4px #b08ae2;
+  padding: 10px;
+  margin: 0px 10px;
+}
+
+.form-floating input[type="email"]::placeholder,
+.form-floating input[type="password"]::placeholder {
+  color: #c9c3ee;
+}
+
+#registerSubmit {
+  color: #542c0f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  margin: 5px;
+  background-color: #f8d3af;
+  border: 2px solid #542c0f;
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: fit-content;
+}
+
+#registerSubmit:hover {
+  color: #f8d3af;
+  background-color: #542c0f;
+}
+
+.third-party-sign-in{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.btn-sign-in {
+  font-size: 18px;
+  color: #ae00ff; /* Brown */
+  background-color: #f7baff; /* Forest green */
+  border: 1px solid #ff9d64; /* Forest green */
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 12px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-sign-in:hover {
+  background-color: #a7a5ff; /* Dark green */
+  color: #F0E68C; /* Khaki */
+}
+
+
+
+/* REGISTER PAGE STYLING ENDS */
+
+/*  LOGIN PAGE STYLING BEGINS */
+
+
+/* Checkbox Styles */
+.checkbox {
+  display: flex;
+  align-items: center;
+  color: #7ffd9f;
+  margin-bottom: 20px;
+}
+
+.form-check-input {
+  margin-right: 10px; /* Spacing between checkbox and label text */
+  width: 20px; 
+  height: 20px;
+  border: 2px solid #7ffd9f; 
+  border-radius: 10px; 
+  background-color: #ffcdf0;
+  cursor: pointer; 
+}
+
+.form-check-input:checked {
+  background-color: #228B22;
+  border: 2px solid #228B22;
+}
+
+.form-label {
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+}
+
+.form-label:hover {
+  text-decoration: underline;
+}
+
+.login-buttons{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  text-shadow: none;
+  justify-content: space-evenly;
+}
