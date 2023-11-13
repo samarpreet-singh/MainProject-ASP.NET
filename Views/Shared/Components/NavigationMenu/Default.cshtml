@@ -5,7 +5,7 @@
         @foreach (var menuItem in Model)
         {
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-controller="@menuItem.Controller"
+                <a class="link-style-nav" asp-controller="@menuItem.Controller"
                     asp-action="@menuItem.Action">@menuItem.Label</a>
             </li>
         }
@@ -15,13 +15,13 @@
         @if (User.Identity.IsAuthenticated)
         {
             <li class="nav-item">
-                <a asp-area="Identity", asp-page="/Account/Manage/Index" class="nav-link text-dark">
+                <a class="link-style-nav" asp-area="Identity", asp-page="/Account/Manage/Index" class="nav-link text-dark">
                 Hello @User.Identity.Name!
                 </a>
             </li>
 
             <li class="nav-item">
-                <a asp-area="Identity" asp-page="/Account/Logout" class="nav-link text-dark">
+                <a class="link-style-nav" asp-area="Identity" asp-page="/Account/Logout" class="nav-link text-dark">
                 Logout
                 </a>
             </li>
@@ -29,12 +29,12 @@
         else
         {
             <li class="nav-item">
-                <a asp-area="Identity" asp-page="/Account/Register" class="nav-link text-dark">
+                <a class="link-style-nav" asp-area="Identity" asp-page="/Account/Register" class="nav-link text-dark">
                 Register
                 </a>
             </li>
             <li class="nav-item">
-                <a asp-area="Identity" asp-page="/Account/Login" class="nav-link text-dark">
+                <a class="link-style-nav" asp-area="Identity" asp-page="/Account/Login" class="nav-link text-dark">
                 Login
                 </a>
             </li>
