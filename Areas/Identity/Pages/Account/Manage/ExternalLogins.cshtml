@@ -6,6 +6,7 @@
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
+
 @if (Model.CurrentLogins?.Count > 0)
 {
     <h3>Registered Logins</h3>
@@ -22,7 +23,8 @@
                                 <div>
                                     <input asp-for="@login.LoginProvider" name="LoginProvider" type="hidden" />
                                     <input asp-for="@login.ProviderKey" name="ProviderKey" type="hidden" />
-                                    <button type="submit" class="btn btn-primary" title="Remove this @login.ProviderDisplayName login from your account">Remove</button>
+                                    <button type="submit" class="btn btn-primary"
+                                        title="Remove this @login.ProviderDisplayName login from your account">Remove</button>
                                 </div>
                             </form>
                         }
@@ -38,16 +40,17 @@
 }
 @if (Model.OtherLogins?.Count > 0)
 {
-    <h4>Add another service to log in.</h4>
-    <hr />
-    <form id="link-login-form" asp-page-handler="LinkLogin" method="post" class="form-horizontal">
-        <div id="socialLoginList">
-            <p>
-                @foreach (var provider in Model.OtherLogins)
-                {
-                    <button id="@($"link-login-button-{provider.Name}")" type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                }
-            </p>
-        </div>
-    </form>
+    <div class="form-section">
+        <form class="manage-section-style" asp-page-handler="LinkLogin" method="post" class="form-horizontal">
+            <h3>Add another service to log in.</h3>
+                <p>
+                    @foreach (var provider in Model.OtherLogins)
+                    {
+                        <button id="@($"link-login-button-{provider.Name}")" type="submit" class="btn-sign-in btn btn-primary"
+                            name="provider" value="@provider.Name"
+                            title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                    }
+                </p>
+        </form>
+    </div>
 }
