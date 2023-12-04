@@ -28,24 +28,35 @@ namespace MainProject.Controllers
                 return NotFound();
             }
 
-            var order = new Order {
+            var order = new Order
+            {
                 UserId = userId, // userId cannot be null even though yellow underline present. This is due to the Authorize decorator.
                 Total = cart.CartItems.Sum(cartItem => (decimal)(cartItem.Quantity * cartItem.Product.MSRP)),
                 OrderItems = new List<OrderItem>()
             }; // product size will be in OrderItem not Order!!
 
-            foreach(var cartItem in cart.CartItems)
+            foreach (var cartItem in cart.CartItems)
             {
-                order.OrderItems.Add(new OrderItem { // this is the snapshot object built that will then be given to OrdersController to further work with it. Snapshot itself will be created during checkout and payments. This will be in flux if product price and stuff changes! 
+                order.OrderItems.Add(new OrderItem
+                { // this is the snapshot object built that will then be given to OrdersController to further work with it. Snapshot itself will be created during checkout and payments. This will be in flux if product price and stuff changes! 
                     OrderId = order.Id,
                     ProductName = cartItem.Product.Name,
                     Quantity = cartItem.Quantity,
                     Size = cartItem.Size,
+                    Image = cartItem.Product.Image,
                     Price = cartItem.Product.MSRP
                 });
             }
-            
-            return View("Details", order);
+
+            if (order.OrderItems != null && order.OrderItems.Count > 0)
+            {
+                return View("Details", order);
+            }
+            else
+            {
+                // Redirect to the Carts/Index action if there are no order items, this prevents the user from just typing Orders/Checkout in the url and reaching that page.
+                return RedirectToAction("Index", "Carts");
+            }
         }
     }
 }

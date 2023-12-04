@@ -5,30 +5,45 @@
 }
 
 
-
-@if (Model.CartItems != null && Model.CartItems.Any())
+@if (Model.CartItems != null && Model.CartItems.Count > 0)
 {
     <div class="container">
 
-        <div class="cart-items-container">
-            <h2>@ViewData["Title"]</h2>
-            @foreach (var cartItem in Model.CartItems)
-            {
-                <div class="cart-item">
-                    <div class="product-image">
-                        <img src="@cartItem.Product.Image" alt="@cartItem.Product.Name" />
+        <div class="orders-container">
+            <div class="cart-items-container">
+                <h2>@ViewData["Title"]</h2>
+                @foreach (var cartItem in Model.CartItems)
+                {
+                    <div class="cart-item">
+                        <div class="product-image">
+                            <img src="@cartItem.Product.Image" alt="@cartItem.Product.Name" />
+                        </div>
+                        <div class="product-details">
+                            <h2><a class="link-style-2" asp-controller="Products" asp-action="Details"
+                                    asp-route-id="@cartItem.Product.Id">@cartItem.Product.Name</a></h2>
+                            <p>Size: @cartItem.Size</p>
+                            <p>Quantity: @cartItem.Quantity</p>
+                            <p>Price: $@cartItem.Product.MSRP</p>
+                            <p>Subtotal: $@(cartItem.Quantity * cartItem.Product.MSRP)</p>
+                            <p>
+                            <form asp-action="RemoveFromCart">
+                                <input type="hidden" name="productId" asp-for="@cartItem.ProductId">
+                                <!-- name has to be same as parameter in RemoveFromCart in CartsController -->
+                                <input type="submit" value="Remove" class="link-style-2">
+                            </form>
+                            </p>
+                        </div>
                     </div>
-                    <div class="product-details">
-                        <h2><a class="link-style-2" asp-controller="Products" asp-action="Details" asp-route-id="@cartItem.Product.Id">@cartItem.Product.Name</a></h2>
-                        <p>Size: @cartItem.Size</p>
-                        <p>Quantity: @cartItem.Quantity</p>
-                        <p>Price: $@cartItem.Product.MSRP</p>
-                        <p>Subtotal: $@(cartItem.Quantity * cartItem.Product.MSRP)</p>
-                    </div>
-                </div>
-            }
-            <p class="final-total">Final Total: $@(Model.CartItems.Sum(cartItem => cartItem.Quantity * cartItem.Product.MSRP))</p>
+                }
+            </div>
+
+            <div class="order-total-container">
+                <p class="final-order-total">Final Total: $@(Model.CartItems.Sum(cartItem => cartItem.Quantity *
+                cartItem.Product.MSRP))</p>
+                <a class="link-style-2" asp-controller="Orders" asp-action="Checkout">Checkout</a>
+            </div>
         </div>
+
         <p class="link-para-container">
             <a class="link-style-2" asp-controller="Products" asp-action="Index">Show All Products</a>
             <a class="link-style-2" asp-controller="Categories" asp-action="Index">Show All Categories</a>

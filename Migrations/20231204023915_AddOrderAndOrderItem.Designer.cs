@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MainProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231203170123_AddOrderAndOrderItem")]
+    [Migration("20231204023915_AddOrderAndOrderItem")]
     partial class AddOrderAndOrderItem
     {
         /// <inheritdoc />
@@ -74,6 +74,10 @@ namespace MainProject.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasMaxLength(250)
+                        .HasColumnType("varchar(250)");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");

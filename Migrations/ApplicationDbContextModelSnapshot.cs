@@ -72,6 +72,10 @@ namespace MainProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Image")
+                        .HasMaxLength(250)
+                        .HasColumnType("varchar(250)");
+
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 

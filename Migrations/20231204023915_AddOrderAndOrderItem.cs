@@ -43,7 +43,8 @@ namespace MainProject.Migrations
                     ProductName = table.Column<string>(type: "longtext", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Size = table.Column<int>(type: "int", nullable: false)
+                    Size = table.Column<int>(type: "int", nullable: false),
+                    Image = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
