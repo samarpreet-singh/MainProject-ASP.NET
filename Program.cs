@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MainProject.Models;
 using Microsoft.AspNetCore.Identity;
+using MainProject.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,8 @@ builder.Services.AddAuthentication().AddGoogle(options => {
     options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
     options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
 });
+
+builder.Services.AddScoped<CartService>(); // this is an important step that turns CartService into an injectable dependency that makes it available in the cartsController and wherever else it is used.
 
 var app = builder.Build();
 

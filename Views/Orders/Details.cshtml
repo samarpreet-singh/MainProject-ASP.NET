@@ -1,0 +1,35 @@
+@model MainProject.Models.Order
+
+@ViewData["Title"] = "Order Details - Crafty Creations";
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.OrderItems != null && Model.OrderItems.Any())
+{
+    <div class="container">
+
+        <div class="cart-items-container">
+            <h2>@ViewData["Title"]</h2>
+            @foreach (var orderItem in Model.OrderItems)
+            {
+                <div class="cart-item">
+                    <div class="product-image">
+                        <img src="@orderItem.Product.Image" alt="@cartItem.Product.Name" />
+                    </div>
+                    <div class="product-details">
+                        <h2><a class="link-style-2" asp-controller="Products" asp-action="Details" asp-route-id="@cartItem.Product.Id">@cartItem.Product.Name</a></h2>
+                        <p>Size: @cartItem.Size</p>
+                        <p>Quantity: @cartItem.Quantity</p>
+                        <p>Price: $@cartItem.Product.MSRP</p>
+                        <p>Subtotal: $@(cartItem.Quantity * cartItem.Product.MSRP)</p>
+                    </div>
+                </div>
+            }
+            <p class="final-total">Final Total: $@(Model.CartItems.Sum(cartItem => cartItem.Quantity * cartItem.Product.MSRP))</p>
+        </div>
+        <p class="link-para-container">
+            <a class="link-style-2" asp-controller="Products" asp-action="Index">Show All Products</a>
+            <a class="link-style-2" asp-controller="Categories" asp-action="Index">Show All Categories</a>
+        </p>
+    </div>
+}
