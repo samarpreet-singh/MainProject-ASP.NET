@@ -35,6 +35,9 @@ builder.Services.AddAuthentication().AddGoogle(options => {
 
 builder.Services.AddScoped<CartService>(); // this is an important step that turns CartService into an injectable dependency that makes it available in the cartsController and wherever else it is used.
 
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);// takes the appsettings development file and
+// inject it into every controller as long as we have a listener in controller (param in constructor to look for this)
+
 var app = builder.Build();
 
 // Enable Sessions on requests

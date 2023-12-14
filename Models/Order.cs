@@ -20,7 +20,7 @@ namespace MainProject.Models
         [Required]
         public bool PaymentReceived { get; set; } = false;
 
-        public IdentityUser User { get; set; } = new IdentityUser(); // This is technically a foreign key relationship to a User. Associated to UserId above through 
+        public IdentityUser? User { get; set; } // This is technically a foreign key relationship to a User. Associated to UserId above through 
         //intelligent syntax recognition You can use a decorator for that too but ASP is intelligent. 
         // Decorator would be something like [ForeignKey('UserId')] but NOT SURE!!!
 

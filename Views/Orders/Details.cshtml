@@ -34,10 +34,25 @@
             <p class="final-order-total">
                 Payement Status - @(Model.PaymentReceived ? "Received" : "Not Received")
             </p>
+
+            @if (!Model.PaymentReceived)
+            {
+                <form asp-action="ProcessPayment">
+                    <button class="action-button-save">Proceed to Payment</button>
+                </form>
+            }
+            else
+            {
+                <p class="final-order-total">Congrats! Your order has been successfully placed!
+                </p>
+            }
+
+            <a class="link-style-2" asp-action="Index">Back to Orders List</a>
+
         </div>
 
-
     </div>
+
     <p class="link-para-container">
         <a class="link-style-2" asp-controller="Products" asp-action="Index">Show All Products</a>
         <a class="link-style-2" asp-controller="Categories" asp-action="Index">Show All Categories</a>

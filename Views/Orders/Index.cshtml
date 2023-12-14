@@ -1,0 +1,63 @@
+
+@{
+    ViewData["Title"] = "My Orders";
+}
+
+@if (Model != null && Model.Count > 0)
+{
+<div class="container">
+    <div class="orders-container">
+        <div class="my-order-items-container">
+            <h2 class="heading-style-coffee">@ViewData["Title"]</h2>
+            @foreach (var order in Model)
+            {
+                <div class="my-order-item">
+                    <p class="my-order-info">Order ID: @order.Id</p>
+                    <p class="my-order-info">Order Total: @order.Total</p>
+
+                    <div class="my-order-product-details product-details">
+                        @foreach (var orderItem in order.OrderItems)
+                        {
+                            <h2 class="heading-style-coffee">@orderItem.ProductName</h2>
+                            <div class="order-product-image">
+                                <img src="@orderItem.Image" alt="@orderItem.ProductName" />
+                            </div>
+                            <p>Size: @orderItem.Size</p>
+                            <p>Quantity: @orderItem.Quantity</p>
+                            <p>Price: $@orderItem.Price</p>
+                            <p>Subtotal: $@(orderItem.Quantity * orderItem.Price)</p>
+                            <hr>
+                        }
+                    </div>
+                    
+                    <a class="link-style-2" asp-action="Details" asp-route-id="@order.Id">
+                        <!-- asp-route-id here id is the parameter name in Details method in OrdersController -->
+                        Order Details
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <p class="link-para-container">
+        <a class="link-style-2" asp-controller="Products" asp-action="Index">Show All Products</a>
+        <a class="link-style-2" asp-controller="Categories" asp-action="Index">Show All Categories</a>
+    </p>
+</div>
+}
+
+else // ELSE BLOCK HERE!!!!
+{
+    <div class="container">
+        <div class="cart-items-container-empty">
+            <h2>@ViewData["Title"]</h2>
+            <br>
+            <p>You have placed no orders yet! Time to go shopping!</p>
+        </div>
+
+        <p class="link-para-container">
+            <a class="link-style-2" asp-controller="Products" asp-action="Index">Show All Products</a>
+            <a class="link-style-2" asp-controller="Categories" asp-action="Index">Show All Categories</a>
+        </p>
+    </div>
+}
