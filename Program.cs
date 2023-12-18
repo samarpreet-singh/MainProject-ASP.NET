@@ -20,7 +20,41 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("Default") ?? throw new InvalidOperationException("Connection string not found.");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySQL(connectionString));
+    {
+
+        var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+        string connStr;
+
+        if (env == "Development")
+        {
+            connStr = builder.Configuration.GetConnectionString("DemoConnection");
+
+
+        }
+        else
+        {
+            // Use connection string provided at runtime by Heroku.
+            var connUrl = Environment.GetEnvironmentVariable("JAWSDB_URL");
+
+            connUrl = connUrl.Replace("mysql://", string.Empty);
+            var userPassSide = connUrl.Split("@")[0];
+            var hostSide = connUrl.Split("@")[1];
+
+            var connUser = userPassSide.Split(":")[0];
+            var connPass = userPassSide.Split(":")[1];
+            var connHost = hostSide.Split("/")[0];
+            var connDb = hostSide.Split("/")[1].Split("?")[0];
+
+
+            connStr = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
+
+
+
+        }
+
+        options.UseMySQL(connStr);
+
+    });
 
 builder.Services.AddDefaultIdentity<IdentityUser>() // IdentityUser is a template for a user
     .AddRoles<IdentityRole>()
@@ -28,7 +62,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>() // IdentityUser is a templat
 
 builder.Services.AddTransient<DbInitializer>();
 
-builder.Services.AddAuthentication().AddGoogle(options => {
+builder.Services.AddAuthentication().AddGoogle(options =>
+{
     options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
     options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
 });
