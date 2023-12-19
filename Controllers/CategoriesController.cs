@@ -59,7 +59,7 @@ namespace MainProject.Controllers
         [Authorize(Roles="Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description")] Category category)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Image")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace MainProject.Controllers
         [Authorize(Roles="Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Image")] Category category)
         {
             if (id != category.Id)
             {
